@@ -47,7 +47,7 @@ npm test
 
 ```js
 module.exports = {
-  apiBase: "https://你的域名",
+  apiBase: "https://haohantian-digest.onrender.com",
 };
 ```
 
@@ -61,7 +61,7 @@ module.exports = {
    - 备案（国内主体）
    - 有效证书
    - 不要端口号、不要路径
-3. 例：`https://api.example.com`，对应 `apiBase: "https://api.example.com"`。
+3. 例：`https://haohantian-digest.onrender.com`，对应 `apiBase: "https://haohantian-digest.onrender.com"`。
 4. 保存后重新预览。域名每月修改次数有限。
 
 其余还要人在控制台做的事（本仓库无法代做）：
