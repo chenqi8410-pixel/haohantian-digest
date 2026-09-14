@@ -1,0 +1,20 @@
+<view class="wrap">
+  <view wx:if="{{loading}}" class="empty">正在载入往期…</view>
+  <view wx:elif="{{error}}" class="err">{{error}}</view>
+  <block wx:else>
+    <view wx:if="{{offline}}" class="offline">离线模式：显示本地种子往期</view>
+    <view wx:if="{{items.length === 0}}" class="empty">还没有往期日报。</view>
+    <view
+      wx:for="{{items}}"
+      wx:key="date"
+      class="card"
+      data-date="{{item.date}}"
+      bindtap="openDigest"
+    >
+      <view class="kicker">{{item.coverLabel}} · {{item.weekdayZh}}</view>
+      <view class="h2">{{item.title}}</view>
+      <view class="lede">{{item.summary}}</view>
+      <view class="meta">{{item.jobCount}} 个职位 · {{item.date}}</view>
+    </view>
+  </block>
+</view>

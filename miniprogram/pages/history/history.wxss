@@ -1,0 +1,8 @@
+.offline {
+  background: #f3e6c4;
+  color: #5c4a1f;
+  border-radius: 12rpx;
+  padding: 12rpx 16rpx;
+  font-size: 22rpx;
+  margin-bottom: 16rpx;
+}
