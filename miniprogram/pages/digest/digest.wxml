@@ -1,0 +1,38 @@
+<view class="wrap">
+  <view wx:if="{{loading}}" class="empty">正在载入日报…</view>
+  <view wx:elif="{{error}}" class="err">{{error}}</view>
+  <block wx:else>
+    <view class="hero">
+      <view class="kicker">{{digest.date}} · {{digest.weekdayZh}}</view>
+      <view class="h2">{{digest.title}}</view>
+      <view class="lede">{{digest.summary}}</view>
+    </view>
+    <view class="h2">今日三点</view>
+    <view class="hl">
+      <view wx:for="{{digest.highlights}}" wx:key="*this" class="lede">· {{item}}</view>
+    </view>
+    <view class="h2">市场观察</view>
+    <view class="lede">{{digest.marketNote}}</view>
+    <view class="h2">职位</view>
+    <view
+      wx:for="{{jobs}}"
+      wx:key="id"
+      class="job"
+      data-id="{{item.id}}"
+      bindtap="openJob"
+    >
+      <view class="job-top">
+        <view class="logo">{{item.logo}}</view>
+        <view>
+          <view class="job-title">{{item.title}}</view>
+          <view class="meta">{{item.company}} · {{item.locationZh}}</view>
+        </view>
+      </view>
+      <view class="lede">{{item.headline}}</view>
+      <view class="row">
+        <text class="salary">{{item.salaryText}}</text>
+        <text class="visa">{{item.visaText}}</text>
+      </view>
+    </view>
+  </block>
+</view>
