@@ -1,0 +1,27 @@
+<view class="wrap">
+  <view class="hero">
+    <view class="kicker">关于</view>
+    <view class="h2">美聘日报</view>
+    <view class="lede">每日精选美国与全球招聘。今日看列表，点进详情，往期补漏。无网时使用本地 2026-09-14 三家公司种子。</view>
+  </view>
+  <view class="card">
+    <view class="h2">当前接口</view>
+    <view class="lede">{{apiBase}}</view>
+    <view class="meta">改 miniprogram/config.js 的 apiBase。正式发布须在微信公众平台配置 request 合法域名。</view>
+    <view class="btn btn-ghost" bindtap="copyApi">复制接口地址</view>
+  </view>
+  <view class="card">
+    <view class="h2">本机收藏 · {{favs.length}}</view>
+    <view wx:if="{{favs.length === 0}}" class="lede">还没有收藏。打开职位后点「收藏」。收藏只存在这台设备。</view>
+    <view
+      wx:for="{{favs}}"
+      wx:key="id"
+      class="job"
+      data-id="{{item.id}}"
+      bindtap="openJob"
+    >
+      <view class="job-title">{{item.title}}</view>
+      <view class="meta">{{item.company}} · {{item.salaryText}}</view>
+    </view>
+  </view>
+</view>
