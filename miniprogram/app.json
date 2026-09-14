@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/today/today",
+    "pages/history/history",
+    "pages/digest/digest",
+    "pages/job/job",
+    "pages/about/about"
+  ],
+  "window": {
+    "navigationBarTitleText": "浩瀚长天",
+    "navigationBarBackgroundColor": "#1a365d",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f4efe6",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#8a8278",
+    "selectedColor": "#1a365d",
+    "backgroundColor": "#fffdf8",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/today/today",
+        "text": "今日",
+        "iconPath": "images/tab-today.png",
+        "selectedIconPath": "images/tab-today-active.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "往期",
+        "iconPath": "images/tab-history.png",
+        "selectedIconPath": "images/tab-history-active.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "我的",
+        "iconPath": "images/tab-about.png",
+        "selectedIconPath": "images/tab-about-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

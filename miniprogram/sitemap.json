@@ -1,0 +1,9 @@
+{
+  "desc": "美聘日报",
+  "rules": [
+    {
+      "action": "allow",
+      "page": "*"
+    }
+  ]
+}
