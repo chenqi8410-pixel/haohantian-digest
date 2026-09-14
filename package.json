@@ -1,0 +1,21 @@
+{
+  "name": "meipin-daily",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "美聘日报 — 美国与全球招聘每日速报（微信小程序 + 公众号内容系统）",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "seed": "node server/seed.js",
+    "test": "node --test server/api.test.js",
+    "icons": "node scripts/make-icons.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}

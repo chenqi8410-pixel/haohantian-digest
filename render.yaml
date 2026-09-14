@@ -1,0 +1,15 @@
+# Render Blueprint：把本仓库连到 Render 后一键起 HTTPS。
+# Dashboard → New → Blueprint → 选这个仓库。
+services:
+  - type: web
+    name: haohantian-digest
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TZ
+        value: Asia/Shanghai
+      - key: PUBLISH_TOKEN
+        generateValue: true
