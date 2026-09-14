@@ -1,0 +1,29 @@
+<view class="wrap">
+  <view wx:if="{{loading}}" class="empty">正在载入职位…</view>
+  <view wx:elif="{{error}}" class="err">{{error}}</view>
+  <block wx:else>
+    <view class="hero">
+      <view class="row">
+        <view class="logo">{{job.logo}}</view>
+        <view class="fav" bindtap="toggleFav">{{saved ? '已收藏' : '收藏'}}</view>
+      </view>
+      <view class="h2">{{job.title}}</view>
+      <view class="meta">{{job.company}} · {{job.level || '职级未标注'}}</view>
+      <view class="chips">
+        <text class="tag">{{job.locationZh}}</text>
+        <text class="tag">{{job.workModeZh}}</text>
+        <text class="tag">{{job.categoryZh}}</text>
+        <text class="tag" wx:for="{{job.visa}}" wx:key="*this">{{item}}</text>
+      </view>
+      <view class="salary">{{job.salaryText}} · {{job.currency}}</view>
+    </view>
+    <view class="lede">{{job.description}}</view>
+    <view class="h2">我们看重</view>
+    <view class="hl">
+      <view wx:for="{{job.requirements}}" wx:key="*this" class="lede">· {{item}}</view>
+    </view>
+    <view class="meta">来源：{{job.source}} · 日报 {{job.digestDate}}</view>
+    <view class="btn" bindtap="openLink">复制申请链接</view>
+    <view class="btn btn-ghost" bindtap="copyLink">仅复制网址</view>
+  </block>
+</view>
