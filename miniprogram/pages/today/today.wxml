@@ -1,0 +1,48 @@
+<view class="wrap">
+  <view wx:if="{{loading}}" class="empty">正在载入今日日报…</view>
+  <view wx:elif="{{error}}" class="err">{{error}}</view>
+  <block wx:else>
+    <view wx:if="{{offline}}" class="offline">当前为离线种子（2026-09-14 · Google / OpenAI / Jane Street）</view>
+    <view class="hero" bindtap="openDigest">
+      <view class="kicker">美聘日报 · {{digest.weekdayZh}} · {{digest.date}}</view>
+      <view class="h2">{{digest.title}}</view>
+      <view class="lede">{{digest.summary}}</view>
+      <view class="chips">
+        <text class="tag">{{digest.jobCount}} 个职位</text>
+        <text class="tag">点此看市场观察</text>
+      </view>
+    </view>
+    <input class="search" placeholder="搜公司、职位或关键词" value="{{q}}" bindinput="onSearch" />
+    <view class="chips">
+      <view class="chip {{category === '' ? 'chip-on' : ''}}" data-cat="" bindtap="onCat">全部</view>
+      <view
+        wx:for="{{cats}}"
+        wx:key="id"
+        class="chip {{category === item.id ? 'chip-on' : ''}}"
+        data-cat="{{item.id}}"
+        bindtap="onCat"
+      >{{item.name}}</view>
+    </view>
+    <view wx:if="{{jobs.length === 0}}" class="empty">没有符合筛选的职位。</view>
+    <view
+      wx:for="{{jobs}}"
+      wx:key="id"
+      class="job"
+      data-id="{{item.id}}"
+      bindtap="openJob"
+    >
+      <view class="job-top">
+        <view class="logo">{{item.logo}}</view>
+        <view>
+          <view class="job-title">{{item.title}}</view>
+          <view class="meta">{{item.company}} · {{item.locationZh}} · {{item.workModeZh}}</view>
+        </view>
+      </view>
+      <view class="lede">{{item.headline}}</view>
+      <view class="row">
+        <text class="salary">{{item.salaryText}}</text>
+        <text class="visa">{{item.visaText}}</text>
+      </view>
+    </view>
+  </block>
+</view>
